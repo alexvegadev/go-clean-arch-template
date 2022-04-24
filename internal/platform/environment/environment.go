@@ -30,9 +30,7 @@ type Config struct {
 }
 
 func init() {
-	scope := GetEnvScope("dev")
-
-	cfg = getScope(scope, ".yaml")
+	loadScope()
 
 	viper.AddConfigPath("configs")
 	viper.SetConfigType("yaml")
@@ -87,4 +85,9 @@ func GetEnvOrConfig(env string) string {
 
 func GetCurrentEnvironment() Environment {
 	return cfg.env
+}
+
+func loadScope() {
+	scope := GetEnvScope("dev")
+	cfg = getScope(scope, ".yaml")
 }

@@ -2,6 +2,7 @@ package conf
 
 import (
 	"go-clean-arch/cmd/api/conf/handlers"
+	"go-clean-arch/cmd/api/conf/middleware"
 	"go-clean-arch/internal/business"
 	"go-clean-arch/internal/platform/log"
 
@@ -13,6 +14,7 @@ func SetupRoutes(dep *dependencies) *gin.Engine {
 	r := gin.New()
 
 	//Middlewares
+	r.Use(middleware.PropagationMiddleware())
 	r.Use(gin.LoggerWithWriter(log.GetOut(), "/ping", "/health"))
 
 	//API group
