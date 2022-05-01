@@ -2,7 +2,8 @@
 This architecture uses the package oriented design concepts.
 
 # Tracing
-- Prometheus (Event monitoring and alerting)
+- Prometheus (Event monitoring)
+- Alertmanager (Alerting)
 - Logrus (Loggers)
 
 # Libraries
