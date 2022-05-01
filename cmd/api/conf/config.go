@@ -2,7 +2,7 @@ package conf
 
 import (
 	"database/sql"
-	"go-clean-arch/internal/platform/db"
+	"go-clean-arch/internal/platform/database"
 	"go-clean-arch/internal/platform/environment"
 	"go-clean-arch/internal/platform/log"
 
@@ -43,7 +43,7 @@ func buildDatabase(deployEnv bool) (*sql.DB, error) {
 	port := environment.GetEnvOrConfig("DATABASE_PORT")
 	name := environment.GetEnvOrConfig("DATABASE_NAME")
 
-	db, err := db.New(user, pass, host, port, name)
+	db, err := database.New(user, pass, host, port, name)
 
 	if err != nil {
 		log.Errorf("Error trying to setup database connection.")
