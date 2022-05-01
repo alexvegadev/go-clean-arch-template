@@ -19,7 +19,7 @@ services:
     command: --web.enable-lifecycle  --config.file=/etc/prometheus/prometheus.yml
 
   grafana:
-    image: grafana/grafana:7.5.7
+    image: grafana/grafana:latest
     ports:
       - 3000:3000
     restart: unless-stopped
@@ -28,7 +28,7 @@ services:
       - grafana-data:/var/lib/grafana
 
   alertmanager:
-    image: prom/alertmanager:v0.23.0
+    image: prom/alertmanager:latest
     restart: unless-stopped
     ports:
       - "9093:9093"

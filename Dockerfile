@@ -9,4 +9,5 @@ RUN GOFLAGS=-buildvcs=false CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -i
 EXPOSE 8080
 
 ENV GIN_MODE=release
+
 CMD ["./app"]
